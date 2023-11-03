@@ -1,22 +1,22 @@
-## rpi_k3s
-Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4
-## Background
-Provides step by step method for installation via CLI and/or using scripts
-## Installation
-# Prerequisites
+# rpi_k3s
+Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step by step method for installation via CLI and/or using scripts
+# Background
 Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
 Update settings for Hostname, Enable ssh, Set username/passwd
 Update static IP/mac and hostnames for controller and workers on local dns
-#1.	Install SD and boot
-#2.	Recommend disable ufw else at minimum open
+
+## Install SD and boot
+Recommend disable ufw else at minimum open
+```
 ufw allow 6443/tcp #apiserver
 ufw allow from 10.42.0.0/16 to any #pods
 ufw allow from 10.43.0.0/16 to any #services
-#3.	Update/upgrade
+```
+### Update/upgrade
 sudo apt update -y && sudo apt upgrade -y
-#4.	Add cgroup 
+###	Add cgroup 
 sudo nano /boot/cmdline.txt 
-#5.	Append 
+###	Append 
 cgroup_memory=1 cgroup_enable=memory
 #6.	Reboot
 sudo reboot
