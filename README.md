@@ -54,6 +54,7 @@ systemctl enable containerd.service
 exit
 ```
 OR
+
 - Using dockery script
     * Clone repo
     ```
@@ -78,7 +79,9 @@ sudo chmod +x /usr/local/bin/k3d
 ## Install k3s Controller
 ```
 curl -sfL https://get.k3s.io | sh 
-#copy mynodetoken
+```
+Copy token save for later
+```
 sudo cat /var/lib/rancher/k3s/server/node-token
 ```
 ##	Install K3s Workers
@@ -91,12 +94,8 @@ curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetok
 ```
 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
 ```
-- if Restorecon not found
+- if Restorecon not found with ```sh: 970: restorecon: not found sh: 971: restorecon: not founderror```
 ```
-#sh: 970: restorecon: not found
-#sh: 971: restorecon: not founderror
-```
-repeat curl
 sudo apt-get -y install policycoreutils
 ```
 ## Run without sudo 
