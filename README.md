@@ -35,11 +35,11 @@ sudo reboot
 - sudo apt install git
 ```
 ## Install Docker 
-### Docker Reference
+- Docker Reference
 ```
 https://docs.docker.com/engine/install/
 ```
-### Manual CLI from Docker reference
+- Manual CLI from Docker reference
 ```
 sudo -s
 apt-get update -y
@@ -53,7 +53,7 @@ chmod g+rwx "$HOME/.docker" -R; sudo systemctl enable docker.service
 systemctl enable containerd.service
 ```
 OR
-### Using dockery script 
+- Using dockery script 
 ```
 #Clone repo
 cd ~/
@@ -82,14 +82,16 @@ sudo cat /var/lib/rancher/k3s/server/node-token
 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
 ```
 ##	Check for errors
+- If curl fails repeat
 ```
-#If curl fails repeat
 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
 ```
+- if Restorecon not found
 ```
-#if Restorecon not found
 #sh: 970: restorecon: not found
-#sh: 971: restorecon: not founderror 
+#sh: 971: restorecon: not founderror
+```
+repeat curl
 sudo apt-get -y install policycoreutils
 ```
 ## Run without sudo 
