@@ -51,19 +51,24 @@ apt-get update -y ; sudo usermod -aG docker $USER
 newgrp docker; sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 chmod g+rwx "$HOME/.docker" -R; sudo systemctl enable docker.service
 systemctl enable containerd.service
+exit
 ```
 OR
-- Using dockery script 
-```
-#Clone repo
-cd ~/
-git clone https://github.com/GrayHatGuy/dockery.git
-#Setup dockery shortcut aliases
-sudo chmod u+x ~/dockery/bin/*.sh
-sudo sh ~/dockery/bin/setup.sh
-#Run download script
-sudo sh ~/dockery/bin/ddn.sh
-```
+- Using dockery script
+    * Clone repo
+    ```
+    cd ~/
+    git clone https://github.com/GrayHatGuy/dockery.git
+    ```
+    * Setup dockery shortcut aliases
+    ```
+    sudo chmod u+x ~/dockery/bin/*.sh
+    sudo sh ~/dockery/bin/setup.sh
+    ```
+    * Run download script
+    ```
+    sudo sh ~/dockery/bin/ddn.sh
+    ```
 ## Install k3d
 ```
 sudo wget -O k3d-linux-arm64 https://github.com/rancher/k3d/releases/download/v3.1.5/k3d-linux-arm64
