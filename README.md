@@ -104,6 +104,7 @@ sudo apt-get -y install policycoreutils
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 ```
 OR
+
 - shell root owned
 ```
 sudo -s
@@ -131,7 +132,8 @@ sudo rm -rf /etc/apparmor.d/docker
 sudo groupdel docker && sudo rm -rf /var/run/docker.sock
 ```
 OR
-Docker removal script
+
+- Docker removal script
 ```
 sh ~/dockery/bin/drm.sh 
 ```
