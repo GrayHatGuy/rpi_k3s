@@ -127,6 +127,11 @@ sudo rm -rf /usr/local/bin/k3d
 ```
 - Docker removal CLI
 ```
+docker container stop $(docker container ls -aq)
+docker container rm -f $(docker container ls -aq)
+docker rmi -f $(docker images -aq)
+docker volume prune && docker network prune
+docker ps
 sudo dpkg -l | grep -i docker
 sudo apt-get purge -y docker-engine docker docker.io docker-ce docker-ce-cli docker-compose-plugin 
 sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce docker-compose-plugin 
