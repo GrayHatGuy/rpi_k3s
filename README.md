@@ -32,7 +32,7 @@ sudo reboot
 ```
 - Install git
 ```
-- sudo apt install git
+sudo apt install git
 ```
 ## Install Docker 
 - Docker Reference
