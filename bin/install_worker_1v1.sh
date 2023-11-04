@@ -40,5 +40,6 @@ sudo curl -sfL https://get.k3s.io | K3S_URL=https://$IP:6443 K3S_TOKEN=$TOKEN sh
 wait
 echo "k3s installed"
 # good practice
-sudo apt-get upgrade -y && apt-get update -y 
+sudo apt-get upgrade -y && sudo apt-get update -y &&
+wait
 echo "Install complete"
