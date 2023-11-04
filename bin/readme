@@ -1,1 +1,1 @@
-/bin contains shell scripts 
+/bin contains shell scripts for installing and unistalling k3s k3d and docker on both controller and worker nodes.
