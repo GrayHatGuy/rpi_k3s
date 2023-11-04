@@ -45,13 +45,19 @@ sudo apt install git
 
 - Using dockery script
     * Clone repo
+    ```
     cd ~/
     git clone https://github.com/GrayHatGuy/dockery.git
+    ```
     * Setup dockery shortcut aliases
+    ```
     sudo chmod u+x ~/dockery/bin/*.sh
     sudo sh ~/dockery/bin/setup.sh
+    ```
     * Run download script
+    ```
     sudo sh ~/dockery/bin/ddn.sh
+    ```
 OR
 
 - Manual CLI from Docker reference
