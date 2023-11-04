@@ -7,9 +7,9 @@ docker container stop $(docker container ls -aq) ; docker container rm -f $(dock
 sudo dpkg -l | grep -i docker && sudo apt-get purge -y docker-engine docker docker.io docker-ce docker-ce-cli docker-compose-plugin && sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce docker-compose-plugin
 # kill docker lib data groups and sockets
 sudo rm -rf /var/lib/docker /etc/docker && sudo rm -rf /etc/apparmor.d/docker && sudo groupdel docker && sudo rm -rf /var/run/docker.sock
-# good practice
-sudo apt-get upgrade -y && apt-get update -y 
 # k3d nuke
 sudo rm -rf /usr/local/bin/k3d
 # k3s nuke
-sudo sh /usr/local/bin/k3s-agent-uninstall.sh
+sudo sh /usr/local/bin/k3s-agent-uninstall.sh ;wait
+# good practice
+sudo apt-get upgrade -y && apt-get update -y 
