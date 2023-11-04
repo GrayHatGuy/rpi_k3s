@@ -84,7 +84,7 @@ exit
 ```
 OR
 
-- Docker reference used for above scripts
+- [Docker reference](https://docs.docker.com/engine/install/) used for above scripts
 ```
 https://docs.docker.com/engine/install/
 ```
