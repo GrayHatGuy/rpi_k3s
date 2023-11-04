@@ -4,8 +4,7 @@
 # Updates $USER as owner so sudo is not required on k3s/docker
 # Enables containerd
 # Checks versions to confirm installation
-sudo apt-get -y install git
-sudo apt-get -y install policycoreutils
+sudo apt-get -y install git && sudo apt-get -y install policycoreutils ; wait
 # root install shell
 sudo -s
 # docker install
