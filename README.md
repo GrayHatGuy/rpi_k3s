@@ -37,7 +37,7 @@ sudo apt install git
 ### Installation options
 - Script
   - Clone repo ```cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git```
-  - Set owner
+  - Set owner and path
     ```
     sudo chmod u+x ~/rpi_k3s/bin/*.sh
     export PATH="~/rpi_k3s/bin/:$PATH" >> ~/.bashrc
@@ -54,7 +54,7 @@ sudo apt install git
       - Uninstall
      ```sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh```
 - CLI manually
-  - Continue on to next steps
+  - Continue on to next steps ...
 ### Install Docker 
 
 - Using dockery script
