@@ -10,6 +10,8 @@ sudo rm -rf /var/lib/docker /etc/docker && sudo rm -rf /etc/apparmor.d/docker &&
 # k3d nuke
 sudo rm -rf /usr/local/bin/k3d
 # k3s nuke
-sudo sh /usr/local/bin/k3s-agent-uninstall.sh ;wait
+sudo sh /usr/local/bin/k3s-agent-uninstall.sh
+wait
+echo "done"
 # good practice
 sudo apt-get upgrade -y && apt-get update -y 
