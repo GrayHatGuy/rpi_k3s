@@ -1,7 +1,7 @@
 # rpi_k3s
-Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step by step method for installation via CLI and/or using scripts
+Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step by step method for installation via CLI and/or scripts
 
-## Prepare RPI
+### Prepare RPI
 - Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
 
 - Update settings for Hostname, Enable ssh, Set username/passwd
@@ -34,7 +34,14 @@ sudo reboot
 ```
 sudo apt install git
 ```
-## Install Docker 
+### Installation options
+- Script
+  - Clone repo
+  - Set owner
+  - Run commands
+- CLI manually
+  - Continue on to next steps
+### Install Docker 
 - Docker Reference
 ```
 https://docs.docker.com/engine/install/
@@ -73,13 +80,13 @@ OR
     ```
     sudo sh ~/dockery/bin/ddn.sh
     ```
-## Install k3d
+### Install k3d
 ```
 sudo wget -O k3d-linux-arm64 https://github.com/rancher/k3d/releases/download/v3.1.5/k3d-linux-arm64
 sudo mv k3d-linux-arm64 /usr/local/bin/k3d
 sudo chmod +x /usr/local/bin/k3d
 ```
-## Install k3s Controller
+### Install k3s Controller
 ```
 curl -sfL https://get.k3s.io | sh 
 ```
@@ -87,12 +94,12 @@ Copy token save for later
 ```
 sudo cat /var/lib/rancher/k3s/server/node-token
 ```
-##	Install K3s Workers
+###	Install K3s Workers
 - Update curl command below with ```#mynodetoken:``` from ```/var/lib/rancher/k3s/server/node-token``` and ```#myserver: <controlIP>:6443```
 ```
 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
 ```
-##	Check for errors
+###	Check for errors
 - If curl fails repeat
 ```
 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
@@ -101,7 +108,7 @@ curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetok
 ```
 sudo apt-get -y install policycoreutils
 ```
-## Run without sudo 
+### Run without sudo 
 - User owned
 ```
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
@@ -112,7 +119,7 @@ OR
 ```
 sudo -s
 ```
-##	Uninstall
+###	Uninstall
 - Controller remove 
 ```
 /usr/local/bin/k3s-uninstall.sh
@@ -145,7 +152,7 @@ OR
 ```
 sh ~/dockery/bin/drm.sh 
 ```
-## Config 
+### Config 
 ```
 kubectl config get-contexts
 kubectl config use-context yourcontext
@@ -155,7 +162,7 @@ kubectl config current-context
 kubectl config delete-context yourcluster
 kubectl config set-context yourcontext --cluster=yourcluster --user=username --namespace=yournamespace
 ```
-##	Verify install
+###	Verify install
 - Controller only
 ```
 k3s --version
