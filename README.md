@@ -43,6 +43,7 @@ sudo apt install git
     export PATH="~/rpi_k3s/bin/:$PATH" >> ~/.bashrc
     ```
   - Run commands
+    ```sudo bash /$HOME/rpi_k3s/bin/dbu.sh
 - CLI manually
   - Continue on to next steps
 ### Install Docker 
