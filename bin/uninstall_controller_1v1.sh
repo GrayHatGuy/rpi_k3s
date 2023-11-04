@@ -12,6 +12,5 @@ sudo rm -rf /usr/local/bin/k3d
 # k3s nuke
 sudo sh /usr/local/bin/k3s-uninstall.sh
 wait
-echo "done"
 # good practice
 sudo apt-get upgrade -y && apt-get update -y 
