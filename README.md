@@ -72,7 +72,7 @@ sudo apt install git
     ```
     sudo sh ~/dockery/bin/ddn.sh
     ```
-OR
+  OR
 
 - Manual CLI from Docker reference
 ```
