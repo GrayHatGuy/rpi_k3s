@@ -43,7 +43,16 @@ sudo apt install git
     export PATH="~/rpi_k3s/bin/:$PATH" >> ~/.bashrc
     ```
   - Run commands
-    ```sudo bash /$HOME/rpi_k3s/bin/dbu.sh
+    - Controller
+      - Install
+     ```sudo bash /$HOME/rpi_k3s/bin/install_controller_1v1.sh```
+      - Uninstall
+     ```sudo bash /$HOME/rpi_k3s/bin/uninstall_controller_1v1.sh```
+    - Worker
+      - Install
+     ```sudo bash /$HOME/rpi_k3s/bin/install_worker_1v1.sh```
+      - Uninstall
+     ```sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh```
 - CLI manually
   - Continue on to next steps
 ### Install Docker 
