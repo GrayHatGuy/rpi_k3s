@@ -42,10 +42,29 @@ sudo apt install git
 - CLI manually
   - Continue on to next steps
 ### Install Docker 
-- Docker Reference
-```
-https://docs.docker.com/engine/install/
-```
+
+-- Using dockery script
+    * Clone repo
+    
+    ```
+    cd ~/
+    git clone https://github.com/GrayHatGuy/dockery.git
+    ```
+    
+    * Setup dockery shortcut aliases
+    
+    ```
+    sudo chmod u+x ~/dockery/bin/*.sh
+    sudo sh ~/dockery/bin/setup.sh
+    ```
+    
+    * Run download script
+    
+    ```
+    sudo sh ~/dockery/bin/ddn.sh
+    ```
+OR
+
 - Manual CLI from Docker reference
 ```
 sudo -s
@@ -65,21 +84,10 @@ exit
 ```
 OR
 
-- Using dockery script
-    * Clone repo
-    ```
-    cd ~/
-    git clone https://github.com/GrayHatGuy/dockery.git
-    ```
-    * Setup dockery shortcut aliases
-    ```
-    sudo chmod u+x ~/dockery/bin/*.sh
-    sudo sh ~/dockery/bin/setup.sh
-    ```
-    * Run download script
-    ```
-    sudo sh ~/dockery/bin/ddn.sh
-    ```
+- Docker reference used for above scripts
+```
+https://docs.docker.com/engine/install/
+```
 ### Install k3d
 ```
 sudo wget -O k3d-linux-arm64 https://github.com/rancher/k3d/releases/download/v3.1.5/k3d-linux-arm64
