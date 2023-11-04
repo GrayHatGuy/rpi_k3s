@@ -179,3 +179,19 @@ k3s --version
 k3d --version
 kubectl get nodes
 ``` 
+## Post-Installation tools 
+Scripts and examples
+### Dockery scripts
+- dhi
+- dok
+### Examples
+- Docker
+  - Hello-world container
+  - nginx container
+  - kill all
+- k3s
+  - nginx ingest
+    - check pods
+    - port forward
+    - kill pods
+    - 
