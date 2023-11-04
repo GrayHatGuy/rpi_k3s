@@ -22,6 +22,6 @@ sudo sh /usr/local/bin/k3s-uninstall.sh &&
 wait
 echo "k3s nuked"
 # good practice
-sudo apt-get upgrade -y && apt-get update -y &&
+sudo apt-get upgrade -y && sudo apt-get update -y &&
 wait
 echo "Uninstall complete"
