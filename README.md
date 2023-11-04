@@ -182,11 +182,14 @@ kubectl get nodes
 ## Post-Installation tools 
 Scripts and examples
 ### Dockery scripts
-- dhi
-- dok
+- [dhi.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dhi.sh) docker run hello-world checks status of processes networks routes and images 
+- [dok.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dok.sh) checks status of processes networks routes and images 
 ### Examples
 - Docker
-  - Hello-world container
+  - Hello-world
+    ```
+    docker run hello-world
+    ``` 
   - nginx container
   - kill all
 - k3s
