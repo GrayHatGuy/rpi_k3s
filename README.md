@@ -92,15 +92,16 @@ apt-get update -y
 apt-get upgrade -y
 curl -fsSL https://get.docker.com -o get-docker.sh
 bash get-docker.sh
+exit
 sudo apt-get upgrade -y
-apt-get update -y
+sudo apt-get update -y
 sudo usermod -aG docker $USER
 newgrp docker
 sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-chmod g+rwx "$HOME/.docker" -R
+sudo chmod g+rwx "$HOME/.docker" -R
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
-exit
+
 ```
 OR
 
