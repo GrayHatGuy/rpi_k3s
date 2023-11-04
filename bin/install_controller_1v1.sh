@@ -8,9 +8,11 @@ sudo apt-get -y install git && sudo apt-get -y install policycoreutils ; wait
 # root install shell
 sudo -s
 # docker install
-apt-get update -y && apt-get upgrade -y && curl -fsSL https://get.docker.com -o get-docker.sh && bash get-docker.sh ; wait
+apt-get update -y && apt-get upgrade -y && curl -fsSL https://get.docker.com -o get-docker.sh && bash get-docker.sh
+wait
 # docker own
-sudo usermod -aG docker $USER && newgrp docker && sudo chown "$USER":"$USER" /home/"$USER"/.docker -R && chmod g+rwx "$HOME/.docker" -R ; wait
+sudo usermod -aG docker $USER && newgrp docker && sudo chown "$USER":"$USER" /home/"$USER"/.docker -R && chmod g+rwx "$HOME/.docker" -R  
+wait
 # docker startup
 sudo systemctl enable docker.service && sudo systemctl enable containerd.service ; wait
 exit
