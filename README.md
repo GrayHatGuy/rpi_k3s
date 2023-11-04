@@ -153,6 +153,7 @@ OR
 sh ~/dockery/bin/drm.sh 
 ```
 ### Config 
+Set context and cluster config variable examples
 ```
 kubectl config get-contexts
 kubectl config use-context yourcontext
@@ -163,14 +164,9 @@ kubectl config delete-context yourcluster
 kubectl config set-context yourcontext --cluster=yourcluster --user=username --namespace=yournamespace
 ```
 ###	Verify install
-- Controller only
 ```
 docker --version
 k3s --version
 k3d --version
 kubectl get nodes
 ``` 
-- Both controller and workers
-```
-docker --version
-```
