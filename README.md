@@ -149,9 +149,15 @@ sudo groupdel docker && sudo rm -rf /var/run/docker.sock
 OR
 
 - Docker removal script
-```
-sh ~/dockery/bin/drm.sh 
-```
+
+  - Clear docker [dcl.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dcl.sh)
+    ```
+    sh ~/dockery/bin/dcl.sh
+    ```
+  - Remove docker [drm.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/drm.sh) 
+    ```
+    sh ~/dockery/bin/drm.sh 
+    ```
 ### Config 
 Set context and cluster config variable examples
 ```
