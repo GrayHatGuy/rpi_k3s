@@ -20,7 +20,7 @@ exit
 # k3d install
 sudo wget -O k3d-linux-arm64 https://github.com/rancher/k3d/releases/download/v3.1.5/k3d-linux-arm64 && sudo mv k3d-linux-arm64 /usr/local/bin/k3d && sudo chmod +x /usr/local/bin/k3d
 # k3s install
-curl -sfL https://get.k3s.io | sh 
+curl -sfL https://get.k3s.io | sh ; wait
 # k3s own
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 # good practice
