@@ -23,7 +23,7 @@ sudo systemctl enable docker.service && sudo systemctl enable containerd.service
 echo "Docker service start"
 wait
 # good practice
-sudo apt-get upgrade -y && apt-get update -y &&
+sudo apt-get upgrade -y && sudo apt-get update -y &&
 wait
  k3d install
 sudo wget -O k3d-linux-arm64 https://github.com/rancher/k3d/releases/download/v3.1.5/k3d-linux-arm64 && sudo mv k3d-linux-arm64 /usr/local/bin/k3d && sudo chmod +x /usr/local/bin/k3d &&
