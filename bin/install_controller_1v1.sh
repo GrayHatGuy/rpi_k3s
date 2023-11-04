@@ -33,7 +33,7 @@ echo "k3s installed"
 # k3s own
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 # good practice
-sudo apt-get upgrade -y && apt-get update -y &&
+sudo apt-get upgrade -y && sudo apt-get update -y &&
 wait
 # Check install verify versions and list nodes
 k3s --version && k3d --version && docker --version && kubectl get nodes &&
