@@ -54,7 +54,7 @@ sudo apt install git
     sudo chmod u+x ~/dockery/bin/*.sh
     sudo sh ~/dockery/bin/setup.sh
     ```
-    * Run download script
+    * Run download script [ddn.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/ddn.sh)
     ```
     sudo sh ~/dockery/bin/ddn.sh
     ```
