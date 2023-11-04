@@ -1,3 +1,9 @@
+#!/bin/bash
+## ~/rpi_k3s/bin/install_controller.sh 
+# Installs policycoreutils git k3s k3d and docker on Controller node
+# Updates $USER as owner so sudo is not required on k3s/docker
+# Enables containerd
+# Checks versions to confirm installation
 sudo apt-get -y install git && sudo apt-get -y install policycoreutils &&
 wait
 k3d &
