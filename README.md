@@ -193,8 +193,12 @@ Scripts and examples
   - nginx container
   - kill all
 - k3s
-  - nginx ingest
-    - check pods
-    - port forward
-    - kill pods
-    - 
+  - nginx 
+    - Run image
+      ```kubectl run nginx --image nginx:alpine```
+    - Port forward
+      ```kubectl port-forward pod/nginx 8080:80```
+    - Check pods
+      ```kubectl get pods```
+    - Check http
+    - Remove pod
