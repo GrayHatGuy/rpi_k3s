@@ -26,6 +26,6 @@ echo echo "Control token is: $TOKEN"
 read -p "Enter controller token from /var/lib/rancher/k3s/server/node-token: " TOKEN
 read -p "Enter IP address: " IP
 echo "Control ip is: $IP"
-curl -sfL https://get.k3s.io | K3S_URL=https://$IP:6443 K3S_TOKEN=$TOKEN sh -
+curl -sfL https://get.k3s.io | K3S_URL=https://$IP:6443 K3S_TOKEN=$TOKEN sh - ; wait
 # good practice
 sudo apt-get upgrade -y && apt-get update -y 
