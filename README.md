@@ -120,18 +120,18 @@ OR
 sudo -s
 ```
 ###	Uninstall
-- Controller remove 
-```
-/usr/local/bin/k3s-uninstall.sh
-```
-- Workers remove
-```
-/usr/local/bin/k3s-agent-uninstall.sh
-```
-- k3d remove
-```
-sudo rm -rf /usr/local/bin/k3d
-```
+- Docker removal script
+
+  - Clear docker [dcl.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dcl.sh)
+    ```
+    sh ~/dockery/bin/dcl.sh
+    ```
+  - Remove docker [drm.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/drm.sh) 
+    ```
+    sh ~/dockery/bin/drm.sh 
+    ```
+OR
+
 - Docker removal CLI
 ```
 docker container stop $(docker container ls -aq)
@@ -146,18 +146,18 @@ sudo rm -rf /var/lib/docker /etc/docker
 sudo rm -rf /etc/apparmor.d/docker
 sudo groupdel docker && sudo rm -rf /var/run/docker.sock
 ```
-OR
-
-- Docker removal script
-
-  - Clear docker [dcl.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dcl.sh)
-    ```
-    sh ~/dockery/bin/dcl.sh
-    ```
-  - Remove docker [drm.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/drm.sh) 
-    ```
-    sh ~/dockery/bin/drm.sh 
-    ```
+- Controller remove 
+```
+/usr/local/bin/k3s-uninstall.sh
+```
+- Workers remove
+```
+/usr/local/bin/k3s-agent-uninstall.sh
+```
+- k3d remove
+```
+sudo rm -rf /usr/local/bin/k3d
+```
 ### Config 
 Set context and cluster config variable examples
 ```
