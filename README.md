@@ -36,8 +36,12 @@ sudo apt install git
 ```
 ### Installation options
 - Script
-  - Clone repo
+  - Clone repo ```cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git```
   - Set owner
+    ```
+    sudo chmod u+x ~/rpi_k3s/bin/*.sh
+    export PATH="~/rpi_k3s/bin/:$PATH" >> ~/.bashrc
+    ```
   - Run commands
 - CLI manually
   - Continue on to next steps
