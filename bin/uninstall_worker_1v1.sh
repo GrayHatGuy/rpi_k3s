@@ -2,7 +2,10 @@
 ## ~/rpi_k3s/bin/uninstall_worker_1v1.sh
 ## uninstall_worker_1v1.sh uninstall k3s k3d and docker from worker
 # docker nuke power down images prune network volumes verify with ps 
-docker container stop $(docker container ls -aq) ; docker container rm -f $(docker container ls -aq) ; docker rmi -f $(docker images -aq) ; docker volume prune && docker network prune && docker ps && 
+docker container stop $(docker container ls -aq) 
+docker container rm -f $(docker container ls -aq) 
+docker rmi -f $(docker images -aq) 
+docker volume prune && docker network prune && docker ps && 
 wait
 # purge docker pkg
 sudo dpkg -l | grep -i docker && sudo apt-get purge -y docker-engine docker docker.io docker-ce docker-ce-cli docker-compose-plugin && sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce docker-compose-plugin && 
@@ -16,4 +19,5 @@ sudo rm -rf /usr/local/bin/k3d
 sudo sh /usr/local/bin/k3s-agent-uninstall.sh &&
 wait
 # good practice
-sudo apt-get upgrade -y && apt-get update -y 
+sudo apt-get upgrade -y && apt-get update -y &&
+echo "Uninstall complete"
