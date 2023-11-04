@@ -165,6 +165,7 @@ kubectl config set-context yourcontext --cluster=yourcluster --user=username --n
 ###	Verify install
 - Controller only
 ```
+docker --version
 k3s --version
 k3d --version
 kubectl get nodes
