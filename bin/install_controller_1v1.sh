@@ -11,20 +11,25 @@ sudo apt-get update -y && sudo apt-get upgrade -y &&
 wait
 sudo curl -fsSL https://get.docker.com -o get-docker.sh &&
 wait
+echo "Docker installed"
 sudo bash get-docker.sh &&
 wait
 # docker own
 sudo usermod -aG docker $USER && newgrp docker && sudo chown "$USER":"$USER" /home/"$USER"/.docker -R && chmod g+rwx "$HOME/.docker" -R &&
 wait
+echo "Docker sudo own"
 # docker startup
 sudo systemctl enable docker.service && sudo systemctl enable containerd.service &&
 wait
+echo "Docker service"
 # k3d install
 sudo wget -O k3d-linux-arm64 https://github.com/rancher/k3d/releases/download/v3.1.5/k3d-linux-arm64 && sudo mv k3d-linux-arm64 /usr/local/bin/k3d && sudo chmod +x /usr/local/bin/k3d &&
 wait
+echo "k3d installed"
 # k3s install
 sudo curl -sfL https://get.k3s.io | sh &&
 wait
+echo "k3s installed"
 # k3s own
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 # good practice
@@ -34,4 +39,5 @@ wait
 k3s --version && k3d --version && docker --version && kubectl get nodes &&
 wait
 # print token
+echo "Use token below when installing agent nodes"
 sudo cat /var/lib/rancher/k3s/server/node-token
