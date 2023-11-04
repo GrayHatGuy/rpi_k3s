@@ -16,4 +16,6 @@ sudo rm -rf /usr/local/bin/k3d
 sudo sh /usr/local/bin/k3s-uninstall.sh &&
 wait
 # good practice
-sudo apt-get upgrade -y && apt-get update -y 
+sudo apt-get upgrade -y && apt-get update -y &&
+wait
+echo "Uninstall complete"
