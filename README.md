@@ -36,7 +36,10 @@ sudo apt install git
 ```
 ### Installation options
 - Script
-  - Clone repo ```cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git```
+  - Clone repo
+    ```
+    cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git
+    ```
   - Set owner and path
     ```
     sudo chmod u+x ~/rpi_k3s/bin/*.sh
@@ -45,14 +48,22 @@ sudo apt install git
   - Run commands
     - Controller
       - Install
-     ```sudo bash /$HOME/rpi_k3s/bin/install_controller_1v1.sh```
+     ```
+        sudo bash /$HOME/rpi_k3s/bin/install_controller_1v1.sh
+     ```
       - Uninstall
-     ```sudo bash /$HOME/rpi_k3s/bin/uninstall_controller_1v1.sh```
+     ```
+        sudo bash /$HOME/rpi_k3s/bin/uninstall_controller_1v1.sh
+     ```
     - Worker
       - Install
-     ```sudo bash /$HOME/rpi_k3s/bin/install_worker_1v1.sh```
+     ```
+        sudo bash /$HOME/rpi_k3s/bin/install_worker_1v1.sh
+     ```
       - Uninstall
-     ```sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh```
+     ```
+        sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh
+     ```
 - CLI manually
   - Continue on to next steps ...
 ### Install Docker 
