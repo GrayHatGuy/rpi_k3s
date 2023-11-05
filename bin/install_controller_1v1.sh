@@ -20,9 +20,7 @@ echo "k3d installed"
 sudo curl -fsSL https://get.docker.com -o get-docker.sh && wait 
 echo "Installing docker ... " 
 sudo bash get-docker.sh && wait 
-sleep 60 
 sudo usermod -aG docker $USER && newgrp docker && sudo chown "$USER":"$USER" /home/"$USER"/.docker -R && chmod g+rwx "$HOME/.docker" -R 
 # docker startup
 sudo systemctl enable docker.service && sudo systemctl enable containerd.service && wait 
-sudo apt-get upgrade -y && sudo apt-get update -y && wait 
-echo "Docker installed"
+sudo apt-get upgrade -y && sudo apt-get update -y
