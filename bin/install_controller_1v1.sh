@@ -18,9 +18,9 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 sudo apt-get update -y && sudo apt-get upgrade -y && wait 
 echo "k3d installed" 
 sudo curl -fsSL https://get.docker.com -o get-docker.sh && wait 
-# docker own
+echo "Installing docker ... " 
 sudo bash get-docker.sh && wait 
-echo "Installing docker ... " && sleep 60 
+sleep 60 
 sudo usermod -aG docker $USER && newgrp docker && sudo chown "$USER":"$USER" /home/"$USER"/.docker -R && chmod g+rwx "$HOME/.docker" -R 
 # docker startup
 sudo systemctl enable docker.service && sudo systemctl enable containerd.service && wait 
