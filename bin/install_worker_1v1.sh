@@ -26,10 +26,8 @@ sudo apt-get update -y && sudo apt-get upgrade -y && wait
 sudo curl -fsSL https://get.docker.com -o get-docker.sh && wait 
 # docker own
 sudo bash get-docker.sh && wait 
-echo "Installing docker ... " && sleep 60 
+echo "Installing docker ... " 
 sudo usermod -aG docker $USER && newgrp docker && sudo chown "$USER":"$USER" /home/"$USER"/.docker -R && chmod g+rwx "$HOME/.docker" -R 
-echo "Docker sudo own"
 # docker startup
 sudo systemctl enable docker.service && sudo systemctl enable containerd.service && wait 
-echo "Docker service" 
 sudo apt-get upgrade -y && sudo apt-get update -y
