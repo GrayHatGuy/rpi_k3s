@@ -2,7 +2,7 @@
 Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step by step method for installation via CLI and/or scripts
 
 # Quick start
-### Prepare RPI
+## Prepare RPI
 - Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
 
 - Update settings for Hostname, Enable ssh, Set username/passwd
@@ -35,7 +35,7 @@ sudo reboot
 ```
 sudo apt install git
 ```
-### Installation 
+## Installation 
 - Script
   - Clone repo
     ```
@@ -67,7 +67,7 @@ sudo apt install git
      ```
      - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install)
 # Manual steps
-### Install Docker 
+## Install Docker 
 
 - Using dockery script
     * Clone repo
@@ -110,13 +110,13 @@ OR
 ```
 https://docs.docker.com/engine/install/
 ```
-### Install k3d
+## Install k3d
 ```
 sudo wget -O k3d-linux-arm64 https://github.com/rancher/k3d/releases/download/v3.1.5/k3d-linux-arm64
 sudo mv k3d-linux-arm64 /usr/local/bin/k3d
 sudo chmod +x /usr/local/bin/k3d
 ```
-### Install k3s Controller
+## Install k3s Controller
 ```
 curl -sfL https://get.k3s.io | sh 
 ```
@@ -124,12 +124,12 @@ Copy token save for later
 ```
 sudo cat /var/lib/rancher/k3s/server/node-token
 ```
-###	Install K3s Workers
+##	Install K3s Workers
 - Update curl command below with ```#mynodetoken:``` from ```/var/lib/rancher/k3s/server/node-token``` and ```#myserver: <controlIP>:6443```
 ```
 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
 ```
-###	Check for errors
+##	Check for errors
 - If curl fails repeat
 ```
 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
@@ -138,7 +138,7 @@ curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetok
 ```
 sudo apt-get -y install policycoreutils
 ```
-### Run without sudo 
+## Run without sudo 
 - User owned
 ```
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
@@ -149,7 +149,7 @@ OR
 ```
 sudo -s
 ```
-###	Uninstall
+##	Uninstall
 - Docker removal script
 
   - Clear docker [dcl.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dcl.sh)
@@ -188,7 +188,7 @@ sudo groupdel docker && sudo rm -rf /var/run/docker.sock
 ```
 sudo rm -rf /usr/local/bin/k3d
 ```
-### Config 
+## Config 
 Set context and cluster config variable examples
 ```
 kubectl config get-contexts
@@ -199,7 +199,7 @@ kubectl config current-context
 kubectl config delete-context yourcluster
 kubectl config set-context yourcontext --cluster=yourcluster --user=username --namespace=yournamespace
 ```
-###	Verify install
+##	Verify install
 - Run scripts to check
   - Check install of controller [ctlck.sh](https://github.com/GrayHatGuy/rpi_k3s/blob/e27301f997478a1484a1e9a78683c759576a925d/bin/ctlck.sh)
   - Check install of worker [wrkck.sh](https://github.com/GrayHatGuy/rpi_k3s/blob/9b328f37e42a56d7cfb22ca7994a082d378e4070/bin/wrkck.sh)
