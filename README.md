@@ -187,17 +187,6 @@ sudo groupdel docker && sudo rm -rf /var/run/docker.sock
 ```
 sudo rm -rf /usr/local/bin/k3d
 ```
-## Config 
-Set context and cluster config variable examples
-```
-kubectl config get-contexts
-kubectl config use-context yourcontext
-kubectl config set-contexts yourcluster
-kubectl config view
-kubectl config current-context
-kubectl config delete-context yourcluster
-kubectl config set-context yourcontext --cluster=yourcluster --user=username --namespace=yournamespace
-```
 ##	Verify install
 - Run scripts to check
   - Check install of controller [ctlck.sh](https://github.com/GrayHatGuy/rpi_k3s/blob/e27301f997478a1484a1e9a78683c759576a925d/bin/ctlck.sh)
