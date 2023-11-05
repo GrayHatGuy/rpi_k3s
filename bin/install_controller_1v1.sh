@@ -16,15 +16,15 @@ echo "k3s installed"
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 # good practice
 sudo apt-get update -y && sudo apt-get upgrade -y && echo "k3d installed" && wait
-sudo curl -fsSL https://get.docker.com -o get-docker.sh && wait && echo "Pausing for completion of script" && pause 120
+sudo curl -fsSL https://get.docker.com -o get-docker.sh && wait && echo "Pausing for completion of script" && sleep 120
 # docker own
-sudo bash get-docker.sh && echo "Docker installed" && wait && sudo usermod -aG docker $USER && newgrp docker && sudo chown "$USER":"$USER" /home/"$USER"/.docker -R && chmod g+rwx "$HOME/.docker" -R && echo "Docker sudo own" && wait
+sudo bash get-docker.sh && echo "Docker installed" && wait && sudo usermod -aG docker $USER && newgrp docker && sudo chown "$USER":"$USER" /home/"$USER"/.docker -R && chmod g+rwx "$HOME/.docker" -R && echo "Docker sudo own" && wait & fg
 # docker startup
-sudo systemctl enable docker.service && sudo systemctl enable containerd.service && wait && echo "Docker service" && sudo apt-get upgrade -y && sudo apt-get update -y && wait
+sudo systemctl enable docker.service && sudo systemctl enable containerd.service && wait && echo "Docker service" && sudo apt-get upgrade -y && sudo apt-get update -y && wait & fg
 # Check install verify versions and list nodes
-k3s --version && k3d --version && docker --version && kubectl get nodes && wait 
+k3s --version && k3d --version && docker --version && kubectl get nodes & fg
 # print token and ip
-echo "Installation complete"
+echo "Installation complete" 
 echo "Use token below when installing agent nodes"
 sudo cat /var/lib/rancher/k3s/server/node-token
 var=$(hostname -I)
