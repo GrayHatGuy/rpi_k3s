@@ -1,27 +1,26 @@
 #!/bin/bash
-## ~/rpi_k3s/bin/uninstall_worker_1v1.sh
-## uninstall_worker_1v1.sh uninstall k3s k3d and docker from worker
-# docker nuke power down images prune network volumes verify with ps 
-docker container stop $(docker container ls -aq) ; docker container rm -f $(docker container ls -aq) ; docker rmi -f $(docker images -aq) ; docker volume prune && docker network prune && docker ps && 
+## ~/rpi_k3s/bin/install_controller.sh 
+# Installs policycoreutils git k3s k3d and docker on Controller node
+# Updates $USER as owner so sudo is not required on k3s/docker
+# Enables containerd
+# Checks versions to confirm installation
+sudo apt-get -y install git && sudo apt-get -y install policycoreutils &&
 wait
-echo "Docker cleared"
-# purge docker pkg
-sudo dpkg -l | grep -i docker && sudo apt-get purge -y docker-engine docker docker.io docker-ce docker-ce-cli docker-compose-plugin && sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce docker-compose-plugin &&
+sudo wget -O k3d-linux-arm64 https://github.com/rancher/k3d/releases/download/v3.1.5/k3d-linux-arm64 && sudo mv k3d-linux-arm64 /usr/local/bin/k3d && sudo chmod +x /usr/local/bin/k3d && echo "k3d installed" &&
 wait
-echo "Docker removed"
-# kill docker lib data groups and sockets
-sudo rm -rf /var/lib/docker /etc/docker && sudo rm -rf /etc/apparmor.d/docker && sudo groupdel docker && sudo rm -rf /var/run/docker.sock && 
-wait
-echo "Docker lib data groups sockets removed"
-# k3d nuke
-sudo rm -rf /usr/local/bin/k3d &&
-wait
-echo "k3d nuked"
-# k3s nuke
-sudo sh /usr/local/bin/k3s-uninstall.sh &&
-wait
-echo "k3s nuked"
+# k3s install
+sudo curl -sfL https://get.k3s.io | sh &&
+wait 
+echo "k3s installed"
+#k3s own
+sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 # good practice
-sudo apt-get upgrade -y && sudo apt-get update -y &&
-wait
-echo "Uninstall complete"
+sudo apt-get update -y && sudo apt-get upgrade -y && wait 
+echo "k3d installed" 
+sudo curl -fsSL https://get.docker.com -o get-docker.sh && wait 
+echo "Installing docker ... " 
+sudo bash get-docker.sh && wait 
+sudo usermod -aG docker $USER && newgrp docker && sudo chown "$USER":"$USER" /home/"$USER"/.docker -R && chmod g+rwx "$HOME/.docker" -R 
+# docker startup
+sudo systemctl enable docker.service && sudo systemctl enable containerd.service && wait 
+sudo apt-get upgrade -y && sudo apt-get update -y 
