@@ -200,7 +200,7 @@ kubectl config set-context yourcontext --cluster=yourcluster --user=username --n
 ```
 ###	Verify install
 - Run scripts to check
-  - Check install of controller [ctlck.sh]()
+  - Check install of controller [ctlck.sh](https://github.com/GrayHatGuy/rpi_k3s/blob/e27301f997478a1484a1e9a78683c759576a925d/bin/ctlck.sh)
   - Check install of worker [wrkck.sh]()
 ```
 docker --version
