@@ -1,8 +1,7 @@
 # rpi_k3s
 Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step by step method for installation via CLI and/or scripts
 
-# Quick start
-## Prepare RPI
+# Prepare RPI
 - Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
 
 - Update settings for Hostname, Enable ssh, Set username/passwd
@@ -34,9 +33,9 @@ sudo reboot
 - Install git
 ```
 sudo apt install git
-```
-## Installation 
-- Script
+``` 
+# Quick start
+## Script
   - Clone repo
     ```
     cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git
