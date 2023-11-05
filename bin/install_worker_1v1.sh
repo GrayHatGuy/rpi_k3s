@@ -32,6 +32,4 @@ echo "Docker sudo own"
 # docker startup
 sudo systemctl enable docker.service && sudo systemctl enable containerd.service && wait 
 echo "Docker service" 
-sudo apt-get upgrade -y && sudo apt-get update -y && wait 
-echo "Docker installed"
-echo "Install complete"
+sudo apt-get upgrade -y && sudo apt-get update -y
