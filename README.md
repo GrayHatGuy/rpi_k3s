@@ -1,6 +1,7 @@
 # rpi_k3s
 Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step by step method for installation via CLI and/or scripts
 
+# Quick start
 ### Prepare RPI
 - Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
 
@@ -64,8 +65,7 @@ sudo apt install git
      ```
         sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh
      ```
-- CLI manually
-  - Continue on to next steps ...
+# Manual steps
 ### Install Docker 
 
 - Using dockery script
