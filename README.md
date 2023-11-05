@@ -199,6 +199,9 @@ kubectl config delete-context yourcluster
 kubectl config set-context yourcontext --cluster=yourcluster --user=username --namespace=yournamespace
 ```
 ###	Verify install
+- Run scripts to check
+  - Check install of controller [ctlck.sh]()
+  - Check install of worker [wrkck.sh]()
 ```
 docker --version
 k3s --version
@@ -208,4 +211,4 @@ kubectl get nodes
 - Dockery scripts
   - [dhi.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dhi.sh) docker run hello-world checks status of processes networks routes and images 
   - [dok.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dok.sh) checks status of processes networks routes and images 
-# Post-Installation tools - ... #soon
+## Post-Installation tools - ... #soon
