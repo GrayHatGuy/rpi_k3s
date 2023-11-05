@@ -49,22 +49,22 @@ sudo apt install git
   - Run commands
     - Controller
       - Install
-     ```
+        ```
         sudo bash /$HOME/rpi_k3s/bin/install_controller_1v1.sh
-     ```
+        ```
       - Uninstall
-     ```
+        ```
         sudo bash /$HOME/rpi_k3s/bin/uninstall_controller_1v1.sh
-     ```
+        ```
     - Worker
       - Install
-     ```
+        ```
         sudo bash /$HOME/rpi_k3s/bin/install_worker_1v1.sh
-     ```
+        ```
       - Uninstall
-     ```
+        ```
         sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh
-     ```
+        ```
      - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install)
 # Manual steps
 ## Install Docker 
