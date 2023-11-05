@@ -35,7 +35,7 @@ sudo reboot
 ```
 sudo apt install git
 ```
-### Installation options
+### Installation 
 - Script
   - Clone repo
     ```
@@ -65,6 +65,7 @@ sudo apt install git
      ```
         sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh
      ```
+     - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install)
 # Manual steps
 ### Install Docker 
 
