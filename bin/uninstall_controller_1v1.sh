@@ -1,6 +1,6 @@
 #!/bin/bash
 ## ~/rpi_k3s/bin/uninstall_worker_1v1.sh
-## uninstall_worker_1v1.sh uninstall k3s k3d and docker from worker
+## uninstall_controller_1v1.sh uninstall k3s k3d and docker from worker
 # docker nuke power down images prune network volumes verify with ps 
 docker container stop $(docker container ls -aq) 
 docker container rm -f $(docker container ls -aq) 
