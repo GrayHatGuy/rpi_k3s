@@ -4,7 +4,7 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
 # Prepare RPI
 - Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
 
-- Update settings for Hostname, Enable ssh, Set username/passwd in RPI Imager
+- Update settings for Hostname, Enable ssh, set username/passwd in RPI Imager
 
 - Afer flash is complete mount SD card and modify the following prior to boot save a backup copy of /boot/cmdline.txt jic
 
@@ -19,7 +19,8 @@ cgroup_memory=1 cgroup_enable=memory
 - Add static IP to /boot/cmdline.txt with the your intended static ip 
   *belows assumes netmask is 255.255.255.0 the static IP address is 192.168.0.69 on gateway 192.168.0.1*
 ```
-ip=192.168.0.69::192.168.0.1:255.255.255.0
+ip=<staticIP>::<gatewayIP>:<netmaskIP>
+# ip=192.168.0.69::192.168.0.1:255.255.255.0
 ```
 - Example changes of cmdline.txt
   
@@ -34,8 +35,10 @@ ip=192.168.0.69::192.168.0.1:255.255.255.0
 - Initial boot
   
 - ssh to static ip and update with your static <ip> and -l <user>
+*belows assumes static IP address is 192.168.0.69 and user is k3sX*
 ```
 ssh <ip> -l <user>
+# ssh 192.168.0.69 -l k3sX
 ```
 
 - (OPTIONAL) recommend disableing uvf but if ufw is enabled at minimum open the following ports for k3s
