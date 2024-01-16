@@ -41,18 +41,18 @@ ssh <ip> -l <user>
 # ssh 192.168.0.69 -l k3sX
 ```
 
-- (OPTIONAL) recommend disableing uvf but if ufw is enabled at minimum open the following ports for k3s
+- (OPTIONAL) recommend disabling ufw but if enabled at minimum open the following ports for k3s
 ```
 ufw status #check firewall is enabled 
 ufw allow 6443/tcp #apiserver
 ufw allow from 10.42.0.0/16 to any #pods
 ufw allow from 10.43.0.0/16 to any #services
 ```
-- Update/upgrade
+- Update and upgrade packages
 ```
 sudo apt update -y && sudo apt upgrade -y
 ```
-- Updated RPi firmware
+- Verify RPi firmware updated
 ```
 sudo rpi-update
 sudo rpi-eeprom-update -d -a
