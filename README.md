@@ -101,7 +101,7 @@ ssh <ip> -l <user>
         ```
      - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install-tools)
 # (Optional) Manual steps 
-*For reference only and only needed if install scripts above are not successful*
+*For reference and only needed if install scripts above are not successful*
 ## Install Docker 
 
 - Using dockery script
