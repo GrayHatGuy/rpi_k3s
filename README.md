@@ -13,11 +13,15 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
 ```
 sudo nano /boot/cmdline.txt
 ```
-- Append to /boot/cmdline.txt
+- Append to /boot/cmdline.txt to use cgproup memory
 ```
 cgroup_memory=1 cgroup_enable=memory
 ```
-- Add static IP to /boot/cmdline.txt with the your intended static ip 
+- Append to /boot/cmdline.txt to disable ipv6
+```
+ipv6.disable=1
+```
+- (optional) Add static IP to /boot/cmdline.txt declaring static ip 
   *belows assumes netmask is 255.255.255.0 the static IP address is 192.168.0.69 on gateway 192.168.0.1*
 ```
 ip=<staticIP>::<gatewayIP>:<netmaskIP>
@@ -31,7 +35,7 @@ ip=<staticIP>::<gatewayIP>:<netmaskIP>
   ```
   *TO:*
   ```
-  console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target cgroup_memory=1 cgroup_enable=memory ip=192.168.0.69::192.168.0.1:255.255.255.0
+  console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target cgroup_memory=1 cgroup_enable=memory ipv6.disable=1 ip=192.168.0.69::192.168.0.1:255.255.255.0
   ```
 - Initial boot
   
