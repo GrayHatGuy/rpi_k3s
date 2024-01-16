@@ -34,13 +34,12 @@ ip=<staticIP>::<gatewayIP>:<netmaskIP>
   ```
 - Initial boot
   
-- ssh to static ip and update with your static <ip> and -l <user>
+- Login with ssh to static ip and update with your static <ip> and -l <user>
 *belows assumes static IP address is 192.168.0.69 and user is k3sX*
 ```
 ssh <ip> -l <user>
 # ssh 192.168.0.69 -l k3sX
 ```
-
 - (OPTIONAL) recommend disabling ufw but if enabled at minimum open the following ports for k3s
 ```
 ufw status #check firewall is enabled 
@@ -48,28 +47,30 @@ ufw allow 6443/tcp #apiserver
 ufw allow from 10.42.0.0/16 to any #pods
 ufw allow from 10.43.0.0/16 to any #services
 ```
-- Update and upgrade packages
-```
-sudo apt update -y && sudo apt upgrade -y
-```
-- Verify RPi firmware updated
-```
-sudo rpi-update
-sudo rpi-eeprom-update -d -a
-sudo reboot
-```
-- Reboot
-```
-sudo reboot
-```
 - Install git
 ```
 sudo apt install git
 sudo apt update -y
 ``` 
+- Update and upgrade packages
+```
+sudo apt update -y && sudo apt upgrade -y
+```
+- Verify RPi firmware updated and reboot
+```
+sudo rpi-update
+sudo rpi-eeprom-update -d -a
+sudo reboot
+```
+- Login with ssh to static ip and update with your static <ip> and -l <user>
+*belows assumes static IP address is 192.168.0.69 and user is k3sX*
+```
+ssh <ip> -l <user>
+# ssh 192.168.0.69 -l k3sX
+```
 # Quick start
 ## Script
-  - Clone repo
+  - Clone repo to install k3s and docker
     ```
     cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git
     ```
@@ -98,7 +99,7 @@ sudo apt update -y
         sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh
         ```
      - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install)
-# Manual steps
+# (OPTIONAL) Manual steps for reference only and only needed if install scripts above are successful
 ## Install Docker 
 
 - Using dockery script
@@ -220,7 +221,7 @@ sudo groupdel docker && sudo rm -rf /var/run/docker.sock
 ```
 sudo rm -rf /usr/local/bin/k3d
 ```
-##	Verify install
+##	Verify install tools
 - Run scripts to check
   - Check install of controller [ctlck.sh](https://github.com/GrayHatGuy/rpi_k3s/blob/e27301f997478a1484a1e9a78683c759576a925d/bin/ctlck.sh)
   - Check install of worker [wrkck.sh](https://github.com/GrayHatGuy/rpi_k3s/blob/9b328f37e42a56d7cfb22ca7994a082d378e4070/bin/wrkck.sh)
