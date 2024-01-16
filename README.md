@@ -98,7 +98,7 @@ ssh <ip> -l <user>
         ```
         sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh
         ```
-     - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install)
+     - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install-tools)
 # (OPTIONAL) Manual steps for reference only and only needed if install scripts above are successful
 ## Install Docker 
 
