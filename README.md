@@ -4,20 +4,10 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
 # Prepare RPI
 - Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
 
-- Update settings for Hostname, Enable ssh, Set username/passwd
+- Update settings for Hostname, Enable ssh, Set username/passwd in RPI Imager
 
-- Update static IP/mac and hostnames for controller and workers on local dns
+- Afer flash is complete mount SD card and modify the following prior to boot save a backup copy of /boot/cmdline.txt jic
 
-- Recommend disable ufw else at minimum open
-```
-ufw allow 6443/tcp #apiserver
-ufw allow from 10.42.0.0/16 to any #pods
-ufw allow from 10.43.0.0/16 to any #services
-```
-- Update/upgrade
-```
-sudo apt update -y && sudo apt upgrade -y
-```
 - Add cgroup 
 ```
 sudo nano /boot/cmdline.txt
@@ -26,6 +16,42 @@ sudo nano /boot/cmdline.txt
 ```
 cgroup_memory=1 cgroup_enable=memory
 ```
+- Add static IP to /boot/cmdline.txt with the your intended static ip 
+  *belows assumes netmask is 255.255.255.0 the static IP address is 192.168.0.69 on gateway 192.168.0.1*
+```
+ip=192.168.0.69::192.168.0.1:255.255.255.0
+```
+- Example changes of cmdline.txt
+  
+  *FROM:*
+  ```
+  console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target
+  ```
+  *TO:*
+  ```
+  console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target cgroup_memory=1 cgroup_enable=memory ip=192.168.0.69::192.168.0.1:255.255.255.0
+  ```
+- Initial boot
+  
+- login with ssh
+
+- (OPTIONAL) recommend disableing uvf but if ufw is enabled at minimum open the following ports for k3s
+```
+ufw status #check firewall is enabled 
+ufw allow 6443/tcp #apiserver
+ufw allow from 10.42.0.0/16 to any #pods
+ufw allow from 10.43.0.0/16 to any #services
+```
+- Update/upgrade
+```
+sudo apt update -y && sudo apt upgrade -y
+```
+- Updated RPi firmware
+```
+sudo rpi-update
+sudo rpi-eeprom-update -d -a
+sudo reboot
+```
 - Reboot
 ```
 sudo reboot
@@ -33,6 +59,7 @@ sudo reboot
 - Install git
 ```
 sudo apt install git
+sudo apt update -y
 ``` 
 # Quick start
 ## Script
