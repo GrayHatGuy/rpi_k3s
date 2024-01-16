@@ -33,7 +33,10 @@ ip=192.168.0.69::192.168.0.1:255.255.255.0
   ```
 - Initial boot
   
-- login with ssh
+- ssh to static ip and update with your static <ip> and -l <user>
+```
+ssh <ip> -l <user>
+```
 
 - (OPTIONAL) recommend disableing uvf but if ufw is enabled at minimum open the following ports for k3s
 ```
