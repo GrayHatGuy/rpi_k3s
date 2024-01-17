@@ -24,7 +24,7 @@ cgroup_memory=1 cgroup_enable=memory
 ```
 ipv6.disable=1
 ```
-- (optional) Add static IP to /boot/cmdline.txt declaring static ip 
+- (optional and experimental needs verification) Add static IP to /boot/cmdline.txt declaring static ip 
   *belows assumes netmask is 255.255.255.0 the static IP address is 192.168.0.69 on gateway 192.168.0.1*
 ```
 ip=<staticIP>::<gatewayIP>:<netmaskIP>
