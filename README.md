@@ -24,7 +24,7 @@ cgroup_memory=1 cgroup_enable=memory
 ```
 ipv6.disable=1
 ```
-- (TBD needs verification) Add static IP to /boot/cmdline.txt declaring static ip 
+- (optional needs verification) Add static IP to /boot/cmdline.txt declaring static ip 
   *belows assumes netmask is 255.255.255.0 the static IP address is 192.168.0.69 on gateway 192.168.0.1*
 ```
 ip=<staticIP>::<gatewayIP>:<netmaskIP>
@@ -107,7 +107,7 @@ ssh <ip> -l <user>
         sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh
         ```
      - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install-tools)
-## Manual steps (optional) 
+## Manual steps 
 *For reference and only necessary for debug if install scripts above are not successful*
 ### Install Docker 
 
