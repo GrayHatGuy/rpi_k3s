@@ -3,6 +3,9 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
 
 # Prepare RPI
 - Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
+  *For long term or heavy it is recommend to ise and external USB drive as SD cards will wear and fail due to excessive r/w*
+    - External USB or ssd (preferred)
+    - SD card (quick fix)
 
 - Update settings for Hostname, Enable ssh, set username/passwd in RPI Imager
 
@@ -68,7 +71,7 @@ sudo rpi-eeprom-update -d -a
 sudo reboot
 ```
 - Login with ssh to static ip and update with your static <ip> and -l <user>
-*belows assumes static IP address is 192.168.0.69 and user is k3sX*
+   *assumes static IP address is 192.168.0.69 and user is k3sX*
 ```
 ssh <ip> -l <user>
 # ssh 192.168.0.69 -l k3sX
@@ -240,4 +243,15 @@ kubectl get nodes
 - Dockery scripts
   - [dhi.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dhi.sh) docker run hello-world checks status of processes networks routes and images 
   - [dok.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dok.sh) checks status of processes networks routes and images 
-## Running image (TBD)
+## (TBD)
+  - deploy image cli
+    - docker
+    - containerd
+  
+  - upgrade to k9s
+
+  - deploy from dashboards
+    - rancher
+    - openlens
+    - fuse
+  
