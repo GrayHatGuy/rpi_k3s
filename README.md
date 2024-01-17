@@ -24,7 +24,7 @@ cgroup_memory=1 cgroup_enable=memory
 ```
 ipv6.disable=1
 ```
-- (optional and experimental needs verification) Add static IP to /boot/cmdline.txt declaring static ip 
+- (TBD needs verification) Add static IP to /boot/cmdline.txt declaring static ip 
   *belows assumes netmask is 255.255.255.0 the static IP address is 192.168.0.69 on gateway 192.168.0.1*
 ```
 ip=<staticIP>::<gatewayIP>:<netmaskIP>
@@ -48,7 +48,7 @@ ip=<staticIP>::<gatewayIP>:<netmaskIP>
 ssh <ip> -l <user>
 # ssh 192.168.0.69 -l k3sX
 ```
-- (OPTIONAL) recommend disabling ufw but if enabled at minimum open the following ports for k3s
+- (Optional) recommend disabling ufw but if enabled at minimum open the following ports for k3s
 ```
 ufw status #check firewall is enabled 
 ufw allow 6443/tcp #apiserver
