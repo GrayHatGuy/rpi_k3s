@@ -12,7 +12,7 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
 - Afer flash is complete mount SD card and modify the following prior to boot with a text editor also save a backup copy of /boot/cmdline.txt before editing jic
   *nano is used as the editor below but any text editor locatated with RPi flasher will suffice*
 
-- Add cgroup 
+- Edit boot 
 ```
 sudo nano /boot/cmdline.txt
 ```
