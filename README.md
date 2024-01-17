@@ -1,7 +1,7 @@
 # rpi_k3s
 Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step by step method for installation via CLI and/or scripts
 
-# Prepare RPI
+## Prepare RPI
 - Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
   *For long term or heavy it is recommend to ise and external USB drive as SD cards will wear and fail due to excessive r/w*
     - External USB or ssd (preferred)
@@ -76,8 +76,8 @@ sudo reboot
 ssh <ip> -l <user>
 # ssh 192.168.0.69 -l k3sX
 ```
-# Quick start
-## Script
+## Quick start
+### Script
   - Clone repo to install k3s and docker
     ```
     cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git
@@ -107,9 +107,9 @@ ssh <ip> -l <user>
         sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh
         ```
      - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install-tools)
-# Manual steps (optional) 
+## Manual steps (optional) 
 *For reference and only necessary for debug if install scripts above are not successful*
-## Install Docker 
+### Install Docker 
 
 - Using dockery script
     * Clone repo
@@ -152,13 +152,13 @@ OR
 ```
 https://docs.docker.com/engine/install/
 ```
-## Install k3d
+### Install k3d
 ```
 sudo wget -O k3d-linux-arm64 https://github.com/rancher/k3d/releases/download/v3.1.5/k3d-linux-arm64
 sudo mv k3d-linux-arm64 /usr/local/bin/k3d
 sudo chmod +x /usr/local/bin/k3d
 ```
-## Install k3s Controller
+### Install k3s Controller
 ```
 curl -sfL https://get.k3s.io | sh 
 ```
@@ -166,12 +166,12 @@ Copy token save for later
 ```
 sudo cat /var/lib/rancher/k3s/server/node-token
 ```
-##	Install K3s Workers
+###	Install K3s Workers
 - Update curl command below with ```#mynodetoken:``` from ```/var/lib/rancher/k3s/server/node-token``` and ```#myserver: <controlIP>:6443```
 ```
 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
 ```
-##	Check for errors
+###	Check for errors
 - If curl fails repeat
 ```
 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
@@ -180,7 +180,7 @@ curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetok
 ```
 sudo apt-get -y install policycoreutils
 ```
-## Run without sudo 
+### Run without sudo 
 - User owned
 ```
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
@@ -191,7 +191,7 @@ OR
 ```
 sudo -s
 ```
-##	Uninstall
+###	Uninstall
 - Docker removal script
 
   - Clear docker [dcl.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dcl.sh)
@@ -230,7 +230,7 @@ sudo groupdel docker && sudo rm -rf /var/run/docker.sock
 ```
 sudo rm -rf /usr/local/bin/k3d
 ```
-#	Verify install tools
+##	Verify install
 - Run scripts to check
   - Check install of controller [ctlck.sh](https://github.com/GrayHatGuy/rpi_k3s/blob/e27301f997478a1484a1e9a78683c759576a925d/bin/ctlck.sh)
   - Check install of worker [wrkck.sh](https://github.com/GrayHatGuy/rpi_k3s/blob/9b328f37e42a56d7cfb22ca7994a082d378e4070/bin/wrkck.sh)
@@ -243,7 +243,7 @@ kubectl get nodes
 - Dockery scripts
   - [dhi.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dhi.sh) docker run hello-world checks status of processes networks routes and images 
   - [dok.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dok.sh) checks status of processes networks routes and images 
-## (TBD)
+### Next steps (TBD)
   - verify static ip /boot/cmdline.txt
   - deploy image cli
     - docker
