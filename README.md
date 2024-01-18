@@ -14,7 +14,7 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
       - Select Rasberry Pi OS Lite (64-bit) image.
       - Update settings for hostname, Enable ssh, set username/passwd then flash to disk(s).
 
-- Afer flash is complete mount SD card and modify the following prior to boot with a text editor also save a backup copy of /boot/cmdline.txt before editing.  
+- Afer flash is complete mount SD card and/or USB to modify the following prior to boot using a text editor. Save a backup copy of /boot/cmdline.txt before editing.  
   *nano is used as the editor below but any text editor RPi flasher will suffice*
 
   - Edit boot 
