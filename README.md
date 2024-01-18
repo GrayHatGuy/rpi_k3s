@@ -19,17 +19,17 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
   *nano is used as the editor below but any text editor RPi flasher will suffice*
 
   - Edit bootfs partition 
-   ```
-   sudo nano /boot/cmdline.txt
-   ```
+    ```
+    sudo nano /boot/cmdline.txt
+    ```
   - Append to /boot/cmdline.txt to use cgproup memory
-   ```
-   cgroup_memory=1 cgroup_enable=memory
-   ```
+    ```
+    cgroup_memory=1 cgroup_enable=memory
+    ```
   - Append to /boot/cmdline.txt to disable ipv6
-   ```
-   ipv6.disable=1
-   ```
+    ```
+    ipv6.disable=1
+    ```
   - Example changes of cmdline.txt
     
     *FROM:*
@@ -41,52 +41,50 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
      **console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target** cgroup_memory=1 cgroup_enable=memory ipv6.disable=1
      ```
 - Initial boot
+  - SD Card only
+    - Continue to ssh logon
   - External USB only
     - Install SD card and USB
-    - Boot from SD card
-    - 
-  - SD Card and/or USB
-   - Login with ssh to static ip and update with your static <ip> and -l <user>
+    - Update boot order in rasp-config
+       ```
+       sudo raspi-config
+       ```
+    - Click on Advanced and select Boot Order USB first
+    - Shutdown and remove SD card then boot only with USB   
+- Login with ssh to static ip and update with your static <ip> and -l <user>
 *belows assumes static IP address is 192.168.0.69 and user is k3sX*
   ```
   ssh <ip> -l <user>
   # ssh 192.168.0.69 -l k3sX
   ```
- - (Optional) recommend disabling ufw but if enabled at minimum open the following ports for k3s
- ```
- ufw status #check firewall is enabled 
- ufw allow 6443/tcp #apiserver
- ufw allow from 10.42.0.0/16 to any #pods
- ufw allow from 10.43.0.0/16 to any #services
- ```
-
-- Login with ssh to static ip and update with your static <ip> and -l <user>
-   *assumes static IP address is 192.168.0.69 and user is k3sX*
-```
-ssh <ip> -l <user>
-# ssh 192.168.0.69 -l k3sX
-```
+- (Optional) recommend disabling ufw but if enabled at minimum open the following ports for k3s
+  ```
+  ufw status #check firewall is enabled 
+  ufw allow 6443/tcp #apiserver
+  ufw allow from 10.42.0.0/16 to any #pods
+  ufw allow from 10.43.0.0/16 to any #services
+  ```
 ## Quick start
 ### Script
   - Install git
-   ```
-   sudo apt install git
-   sudo apt update -y
-   ``` 
+    ```
+    sudo apt install git
+    sudo apt update -y
+    ``` 
    - Update and upgrade packages
-   ```
-   sudo apt update -y && sudo apt upgrade -y
-   ```
+    ```
+    sudo apt update -y && sudo apt upgrade -y
+    ```
   - Clone repo to install k3s and docker
-    ```
-    cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git
-    ```
+     ```
+      cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git
+     ```
   - Set owner and path
-    ```
-    sudo chmod u+x ~/rpi_k3s/bin/*.sh
-    export PATH="~/rpi_k3s/bin/:$PATH" >> ~/.bashrc
-    ```
-  - Run commands
+     ```
+     sudo chmod u+x ~/rpi_k3s/bin/*.sh
+     export PATH="~/rpi_k3s/bin/:$PATH" >> ~/.bashrc
+     ```
+   - Run commands
     - Controller
       - Install
         ```
