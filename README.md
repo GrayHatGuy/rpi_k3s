@@ -1,50 +1,50 @@
 # rpi_k3s
-Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step by step method for installation via CLI and/or scripts
+Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step by step method for installation via CLI and/or scripts.
 
 ## Prepare RPI
-- Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
-  
+- The following steps use Rasberry Pi Imager  
   *For long term or heavy it is recommend to ise and external USB drive as SD cards will wear and fail due to excessive r/w*
 
     - External USB or ssd (preferred)
-    - SD card (quick fix)
+      - Flash eeprom to update the bootloader using the selection in Raspberry Pi Imager onto a separate SD card.
+      - Boot from SD to flash eeprom with latest bootloader. Green LED will pulse at 1 second duty cycle indicating it is complete.
+      - Select Erase for the external USB and for another SD car to preformat to FAT32.
+      - Continue to flash both the USB and SD card per the following steps
+    - SD card and/or USB
+      - Select Rasberry Pi OS Lite (64-bit) image.
+      - Update settings for hostname, Enable ssh, set username/passwd then flash to disk(s).
 
-- Update settings for Hostname, Enable ssh, set username/passwd in RPI Imager
+- Afer flash is complete mount SD card and modify the following prior to boot with a text editor also save a backup copy of /boot/cmdline.txt before editing.  
+  *nano is used as the editor below but any text editor RPi flasher will suffice*
 
-- Afer flash is complete mount SD card and modify the following prior to boot with a text editor also save a backup copy of /boot/cmdline.txt before editing jic
-  *nano is used as the editor below but any text editor locatated with RPi flasher will suffice*
-
-- Edit boot 
-```
-sudo nano /boot/cmdline.txt
-```
-- Append to /boot/cmdline.txt to use cgproup memory
-```
-cgroup_memory=1 cgroup_enable=memory
-```
-- Append to /boot/cmdline.txt to disable ipv6
-```
-ipv6.disable=1
-```
-- (optional needs verification) Add static IP to /boot/cmdline.txt declaring static ip 
-  *belows assumes netmask is 255.255.255.0 the static IP address is 192.168.0.69 on gateway 192.168.0.1*
-```
-ip=<staticIP>::<gatewayIP>:<netmaskIP>
-# ip=192.168.0.69::192.168.0.1:255.255.255.0
-```
-- Example changes of cmdline.txt
-  
-  *FROM:*
+  - Edit boot 
   ```
-  console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target
+  sudo nano /boot/cmdline.txt
   ```
-  *TO:*
+  - Append to /boot/cmdline.txt to use cgproup memory
   ```
-  console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target cgroup_memory=1 cgroup_enable=memory ipv6.disable=1 ip=192.168.0.69::192.168.0.1:255.255.255.0
+  cgroup_memory=1 cgroup_enable=memory
   ```
+  - Append to /boot/cmdline.txt to disable ipv6
+  ```
+  ipv6.disable=1
+  ```
+  - Example changes of cmdline.txt
+    
+    *FROM:*
+    ```
+    console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target
+    ```
+    *TO:*
+    ```
+    console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target cgroup_memory=1 cgroup_enable=memory ipv6.disable=1
+    ```
 - Initial boot
-  
-- Login with ssh to static ip and update with your static <ip> and -l <user>
+  - External USB
+    - Install SD card and USB
+    - Boot from SD card
+    - 
+  - Login with ssh to static ip and update with your static <ip> and -l <user>
 *belows assumes static IP address is 192.168.0.69 and user is k3sX*
 ```
 ssh <ip> -l <user>
