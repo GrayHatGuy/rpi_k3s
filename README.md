@@ -2,25 +2,31 @@
 Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step by step method for installation via CLI and/or scripts.
 
 ## Prepare RPI
-- The following steps use Rasberry Pi Imager  
+- The following steps use Rasberry Pi Imager
+  
   *For long term or heavy use an external USB drive is recommened as SD cards will wear and fail prematurely due to excessive r/w.*
-  *Erase all disks before flashing including the external USB and/oror SD card and preformat to FAT32.  Select Erase from imager.*
+  
+  *Erase all disks before flashing including the external USB and/oror SD card and preformat to FAT32!
+  
+  *Select Erase from imager*
 
     - External USB or ssd (preferred)
       - Flash eeprom to update the bootloader to boot from USB onto a separate SD card.
       - Select Miscellaneous utility images/Bootloader/USB Boot from imager.
-      - Update each device by booting from SD to flash eeprom with latest bootloader.
-      - The green LED will pulse at 1 second duty cycle indicating it is complete.
-      - Power down device and remove bootloader SD Card
-      - Continue to flash both the USB and SD card per the following OS flash steps. 
+      - Hold SD card with bootloader to later steps.
+
     - SD card and/or USB OS flash
       - Select Rasberry Pi OS Lite (64-bit) image.
       - Update hostname, Enable ssh, set username/passwd then flash to disk(s) in settings.
-      - Flash!
+      - Remove SD or USB when finished
 
 - Afer flash is complete mount SD card and/or USB to modify the boot parameter with a text editor prior to boot.
-- Save a backup copy of /boot/cmdline.txt before editing. DO NOT modify any text prior to the appendices. 
-  *nano is used as the editor below but any text editor RPi flasher will suffice*
+  
+   *Save a backup copy of /boot/cmdline.txt before editing!*
+  
+   *DO NOT modify any text prior to the appendices!*
+  
+   *Note that each cmdline is unique to each device!*
 
   - Edit bootfs partition 
     ```
@@ -44,19 +50,21 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
      ```
      **console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target** cgroup_memory=1 cgroup_enable=memory ipv6.disable=1
      ```
-- Initial boot
-  - SD Card only
-    - Continue to ssh logon
+- Initial boot.
+  - SD Card only.
+    - Verify SD card with OS are installed.
+    - Boot device.
+    - Continue to ssh logon.
   - External USB only
-    - Install SD card and USB
-    - Update boot order in rasp-config
-       ```
-       sudo raspi-config
-       ```
-    - Click on Advanced and select Boot Order USB first
-    - Shutdown and remove SD card then boot only with USB   
-- Login with ssh to static ip and update with your static <ip> and -l <user>
-*belows assumes static IP address is 192.168.0.69 and user is k3sX*
+    - Install SD card and USB.
+      - Flash with bootloader SD Card created in prior step. 
+      - Verify USB is installed prior to flashing bootloader.
+      - Boot from bootloader SD.
+      - The green LED will pulse at 500 ms duty cycle when it is complete.
+      - Power down device and remove bootloader SD card.
+      - Boot with USB installed.  
+- Login via ssh to static ip and using your static <ip> and -l <user> below.
+  *belows assumes static IP address is 192.168.0.69 and user is k3sX*
   ```
   ssh <ip> -l <user>
   # ssh 192.168.0.69 -l k3sX
