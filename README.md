@@ -15,10 +15,11 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
       - Continue to flash both the USB and SD card per the following OS flash steps. 
     - SD card and/or USB OS flash
       - Select Rasberry Pi OS Lite (64-bit) image.
-      - Update settings for hostname, Enable ssh, set username/passwd then flash to disk(s) in settings.
+      - Update hostname, Enable ssh, set username/passwd then flash to disk(s) in settings.
       - Flash!
 
-- Afer flash is complete mount SD card and/or USB to modify the following using a text editor prior to boot. Save a backup copy of /boot/cmdline.txt before editing. DO NOT modify any text prior to the appendices. 
+- Afer flash is complete mount SD card and/or USB to modify the boot parameter with a text editor prior to boot.
+- Save a backup copy of /boot/cmdline.txt before editing. DO NOT modify any text prior to the appendices. 
   *nano is used as the editor below but any text editor RPi flasher will suffice*
 
   - Edit bootfs partition 
