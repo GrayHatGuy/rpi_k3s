@@ -18,61 +18,48 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
 - Afer flash is complete mount SD card and/or USB to modify the following using a text editor prior to boot. Save a backup copy of /boot/cmdline.txt before editing. DO NOT modify any text prior to the appendices. 
   *nano is used as the editor below but any text editor RPi flasher will suffice*
 
-  - Edit boot 
-  ```
-  sudo nano /boot/cmdline.txt
-  ```
+  - Edit bootfs partition 
+   ```
+   sudo nano /boot/cmdline.txt
+   ```
   - Append to /boot/cmdline.txt to use cgproup memory
-  ```
-  cgroup_memory=1 cgroup_enable=memory
-  ```
+   ```
+   cgroup_memory=1 cgroup_enable=memory
+   ```
   - Append to /boot/cmdline.txt to disable ipv6
-  ```
-  ipv6.disable=1
-  ```
+   ```
+   ipv6.disable=1
+   ```
   - Example changes of cmdline.txt
     
     *FROM:*
-    ```
-    console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target
-    ```
+     ```
+     **console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target**
+     ```
     *TO:*
-    ```
-    console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target cgroup_memory=1 cgroup_enable=memory ipv6.disable=1
-    ```
+     ```
+     **console=serial0,115200 console=tty1 root=PARTUUID=4e639091-02 rootfstype=ext4 fsck.repair=yes rootwait quiet init=/usr/lib/raspberrypi-sys-mods/firstboot systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target** cgroup_memory=1 cgroup_enable=memory ipv6.disable=1
+     ```
 - Initial boot
-  - External USB
+  - External USB only
     - Install SD card and USB
     - Boot from SD card
     - 
-  - Login with ssh to static ip and update with your static <ip> and -l <user>
+  - SD Card and/or USB
+   - Login with ssh to static ip and update with your static <ip> and -l <user>
 *belows assumes static IP address is 192.168.0.69 and user is k3sX*
-```
-ssh <ip> -l <user>
-# ssh 192.168.0.69 -l k3sX
-```
-- (Optional) recommend disabling ufw but if enabled at minimum open the following ports for k3s
-```
-ufw status #check firewall is enabled 
-ufw allow 6443/tcp #apiserver
-ufw allow from 10.42.0.0/16 to any #pods
-ufw allow from 10.43.0.0/16 to any #services
-```
-- Install git
-```
-sudo apt install git
-sudo apt update -y
-``` 
-- Update and upgrade packages
-```
-sudo apt update -y && sudo apt upgrade -y
-```
-- Verify RPi firmware updated and reboot
-```
-sudo rpi-update
-sudo rpi-eeprom-update -d -a
-sudo reboot
-```
+  ```
+  ssh <ip> -l <user>
+  # ssh 192.168.0.69 -l k3sX
+  ```
+ - (Optional) recommend disabling ufw but if enabled at minimum open the following ports for k3s
+ ```
+ ufw status #check firewall is enabled 
+ ufw allow 6443/tcp #apiserver
+ ufw allow from 10.42.0.0/16 to any #pods
+ ufw allow from 10.43.0.0/16 to any #services
+ ```
+
 - Login with ssh to static ip and update with your static <ip> and -l <user>
    *assumes static IP address is 192.168.0.69 and user is k3sX*
 ```
@@ -81,6 +68,15 @@ ssh <ip> -l <user>
 ```
 ## Quick start
 ### Script
+  - Install git
+   ```
+   sudo apt install git
+   sudo apt update -y
+   ``` 
+   - Update and upgrade packages
+   ```
+   sudo apt update -y && sudo apt upgrade -y
+   ```
   - Clone repo to install k3s and docker
     ```
     cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git
@@ -113,7 +109,15 @@ ssh <ip> -l <user>
 ## Manual steps 
 *For reference and only necessary for debug if install scripts above are not successful*
 ### Install Docker 
-
+  - Install git
+   ```
+   sudo apt install git
+   sudo apt update -y
+   ``` 
+   - Update and upgrade packages
+   ```
+   sudo apt update -y && sudo apt upgrade -y
+   ```
 - Using dockery script
     * Clone repo
     ```
