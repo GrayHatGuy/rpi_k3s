@@ -6,12 +6,12 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
   
   *For long term or heavy use an external USB drive is recommened as SD cards will wear and fail prematurely due to excessive r/w.*
   
-  *Erase all disks before flashing including the external USB and/oror SD card and preformat to FAT32!
+  *Erase all disks before flashing including the external USB and/oror SD card and preformat to FAT32!*
   
   *Select Erase from imager*
 
     - External USB or ssd (preferred)
-      - Flash eeprom to update the bootloader to boot from USB onto a separate SD card.
+      - Prepare SD and flash Bootloader SD to update eeprom.
       - Select Miscellaneous utility images/Bootloader/USB Boot from imager.
       - Hold SD card with bootloader to later steps.
 
