@@ -3,17 +3,19 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
 
 ## Prepare RPI
 - The following steps use Rasberry Pi Imager  
-  *For long term or heavy use an external USB drive is recommened as SD cards will wear and fail prematurely due to excessive r/w*
+  *For long term or heavy use an external USB drive is recommened as SD cards will wear and fail prematurely due to excessive r/w.*
+  *Erase all disks before flashing including the external USB and/oror SD card and preformat to FAT32.  Select Erase from imager.*
 
     - External USB or ssd (preferred)
-      - Select Erase before flashing either the external USB or SD card to preformat to FAT32 before flashing
-      - Flash eeprom to update the bootloader using the selection in Raspberry Pi Imager onto a separate SD card.
-      - Boot from SD to flash eeprom with latest bootloader. Green LED will pulse at 1 second duty cycle indicating it is complete.
-      
-      - Continue to flash both the USB and SD card per the following steps
-    - SD card and/or USB
+      - Flash eeprom to update the bootloader to boot from USB onto a separate SD card.
+      - Select Miscellaneous utility images/Bootloader/USB Boot from imager.
+      - Update each device by booting from SD to flash eeprom with latest bootloader.
+      - The green LED will pulse at 1 second duty cycle indicating it is complete.
+      - Power down device and remove bootloader SD Card
+      - Continue to flash both the USB and SD card per the following OS flash steps. 
+    - SD card and/or USB OS flash
       - Select Rasberry Pi OS Lite (64-bit) image.
-      - Update settings for hostname, Enable ssh, set username/passwd then flash to disk(s) in settings
+      - Update settings for hostname, Enable ssh, set username/passwd then flash to disk(s) in settings.
       - Flash!
 
 - Afer flash is complete mount SD card and/or USB to modify the following using a text editor prior to boot. Save a backup copy of /boot/cmdline.txt before editing. DO NOT modify any text prior to the appendices. 
