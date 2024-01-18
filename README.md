@@ -13,7 +13,7 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
     - External USB or ssd (preferred)
       - Prepare SD and flash Bootloader SD to update eeprom.
       - Select Miscellaneous utility images/Bootloader/USB Boot from imager.
-      - Hold SD card with bootloader to later steps.
+      - Hold SD card with bootloader for use in later steps.
 
     - SD card and/or USB OS flash
       - Select Rasberry Pi OS Lite (64-bit) image.
