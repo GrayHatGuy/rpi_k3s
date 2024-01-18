@@ -4,7 +4,7 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
 ## Prepare RPI
 - Flash using RPI Imager and Raspbian Lite (64-bit)/Bookworm image
   
-*For long term or heavy it is recommend to ise and external USB drive as SD cards will wear and fail due to excessive r/w*
+  *For long term or heavy it is recommend to ise and external USB drive as SD cards will wear and fail due to excessive r/w*
 
     - External USB or ssd (preferred)
     - SD card (quick fix)
