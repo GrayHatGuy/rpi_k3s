@@ -130,7 +130,7 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
   - Install git
     
    ```
-   sudo apt install git
+   sudo apt install git -y
    ``` 
    - Update and upgrade packages
      
