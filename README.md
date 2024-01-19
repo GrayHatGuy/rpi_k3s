@@ -269,11 +269,11 @@ kubectl get nodes
 - Dockery scripts
   - [dhi.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dhi.sh) docker run hello-world checks status of processes networks routes and images 
   - [dok.sh](https://github.com/GrayHatGuy/dockery/blob/4f9972c302939bb545ec86be3963e3a42c82a3ce/bin/dok.sh) checks status of processes networks routes and images 
-### Next steps (TBD)
-  - # Cloudflare Tunnel
+## Next steps (TBD)
+  - ### Cloudflare Tunnel
     ***Recommend is K3s is accessing WAN***
     - [Setup Tunnel](https://www.cloudflare.com/products/tunnel/)
-  - # Dashboards
+  - ### Dashboards
     - [k9s](https://k9scli.io/)
     - [Rancer SUSE]
     - [openlens]
