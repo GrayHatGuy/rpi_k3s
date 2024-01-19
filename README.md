@@ -79,14 +79,13 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
 ## Quick start
 ### Script
   - Install git
-    ```
-    sudo apt install git
-    ``` 
+      ```
+      sudo apt install git
+      ``` 
    - Update and upgrade packages
-     
-    ```
-    sudo apt update -y && sudo apt upgrade -y
-    ```
+     ```
+      sudo apt update -y && sudo apt upgrade -y
+     ```
   - Clone repo to install k3s and docker
      ```
       cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git
