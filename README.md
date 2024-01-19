@@ -78,43 +78,52 @@ Installation of k3s k3d and docker on a Raspberry Pi 3 and/or 4. Provides step b
   ```
 ## Quick start
 ### Script
-  - Install git
-      ```
-      sudo apt install git
-      ``` 
-   - Update and upgrade packages
+- Install git
+    ```
+    sudo apt install git
+    ``` 
+- Update and upgrade packages
      ```
       sudo apt update -y && sudo apt upgrade -y
      ```
-  - Clone repo to install k3s and docker
+- Clone repo to install k3s and docker
      ```
       cd ~/ && git clone https://github.com/GrayHatGuy/rpi_k3s.git
      ```
-  - Set owner and path
+- Set owner and path
      ```
      sudo chmod u+x ~/rpi_k3s/bin/*.sh
      export PATH="~/rpi_k3s/bin/:$PATH" >> ~/.bashrc
      ```
-   - Run commands
+- Run commands
+     
     - Controller
+    
       - Install
         ```
         sudo bash /$HOME/rpi_k3s/bin/install_controller_1v1.sh
         ```
+        
       - Uninstall
         ```
         sudo bash /$HOME/rpi_k3s/bin/uninstall_controller_1v1.sh
         ```
+        
     - Worker
+    
       - Install
+      
         ```
         sudo bash /$HOME/rpi_k3s/bin/install_worker_1v1.sh
         ```
+        
       - Uninstall
+      
         ```
         sudo bash /$HOME/rpi_k3s/bin/uninstall_worker_1v1.sh
         ```
-     - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install-tools)
+        
+ - Verify install with these [tools](https://github.com/GrayHatGuy/rpi_k3s/blob/main/README.md#verify-install-tools)
 ## Manual steps 
 *For reference and only necessary for debug if install scripts above are not successful*
 ### Install Docker 
